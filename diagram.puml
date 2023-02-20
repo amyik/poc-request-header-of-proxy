@@ -1,0 +1,17 @@
+@startuml
+actor Client
+box "nginx proxy 1" #LightBlue
+participant Proxy1
+end box
+box "nginx proxy 2" #LightBlue
+participant Proxy2
+end box
+participant Server
+
+Client -> Proxy1: HTTP Request
+Proxy1 -> Proxy2: Forward Request
+Proxy2 -> Server: Forward Request
+Server --> Proxy2: HTTP Response
+Proxy2 --> Proxy1: Forward Response
+Proxy1 --> Client: HTTP Response
+@enduml
