@@ -1,0 +1,11 @@
+spring:
+  profiles:
+    active: dev
+
+
+server:
+#  forward-headers-strategy: none # spring-boot 2.6.6 기준 default 값이 none이 아닌 듯.
+  forward-headers-strategy: framework
+#  forward-headers-strategy: native
+#  forward-headers-strategy.native.header-names: X-Forwarded-For
+

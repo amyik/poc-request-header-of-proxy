@@ -1,0 +1,36 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: target-server
+  labels:
+    app: target-server
+spec:
+  type: NodePort
+  #  type: ClusterIP
+  #  clusterIP: None
+  selector:
+    app: target-server
+  ports:
+    - port: 8080
+      targetPort: 8080
+      nodePort: 30003
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: target-server
+  labels:
+    app: target-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: target-server
+  template:
+    metadata:
+      labels:
+        app: target-server
+    spec:
+      containers:
+        - name: target-server
+          image: target-server
