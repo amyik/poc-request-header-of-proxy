@@ -1,5 +1,3 @@
-![image](https://user-images.githubusercontent.com/16394842/220062703-4cec43b5-bd37-4c75-95f6-70356c86a697.png)
-
 
 ### 실행하기
 
