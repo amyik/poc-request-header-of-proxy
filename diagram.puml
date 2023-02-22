@@ -1,12 +1,28 @@
 @startuml
-actor Client
+hide footbox
+title
+Request Flow
+end title
+participant Client [
+  = Http Client
+  10.0.1.50
+]
 box "nginx proxy 1" #LightBlue
-participant Proxy1
+participant Proxy1 [
+  = Proxy1
+  10.0.1.51
+]
 end box
 box "nginx proxy 2" #LightBlue
-participant Proxy2
+participant Proxy2 [
+  = Proxy2
+  10.0.1.52
+]
 end box
-participant Server
+participant Server [
+  = Server
+    10.0.1.53
+]
 
 Client -> Proxy1: HTTP Request
 Proxy1 -> Proxy2: Forward Request

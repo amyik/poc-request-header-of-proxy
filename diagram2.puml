@@ -1,0 +1,13 @@
+@startuml
+rectangle "Client Pod" as client
+rectangle "Nginx Proxy 1" as proxy1
+rectangle "Nginx Proxy 2" as proxy2
+rectangle "Server Pod" as server
+
+client -right-> proxy1 : HTTP request
+proxy1 -right-> proxy2 : HTTP request
+proxy2 -right-> server : HTTP request
+server -left-> proxy2 : HTTP response
+proxy2 -left-> proxy1 : HTTP response
+proxy1 -left-> client : HTTP response
+@enduml
